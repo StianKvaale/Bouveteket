@@ -1,0 +1,39 @@
+trigger:
+  - master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - task: Npm@1
+    displayName: "npm ci"
+    inputs:
+      command: ci
+      verbose: false
+
+  - task: Npm@1
+    displayName: "npm run build"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: "run build"
+    env:
+      REACT_APP_NODE_ENV: "production"
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/build"
+      includeRootFolder: false
+      archiveType: "zip"
+      archiveFile: "$(Build.BuildId).zip"
+      replaceExistingArchive: true
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: "AzureRM"
+      azureSubscription: "Tech2 - Microsoft 5(60c7f837-65de-4cf2-aab1-a0e7d24f0b2e)"
+      appType: "webAppLinux"
+      WebAppName: "bouveteket-prod-frontend"
+      packageForLinux: "$(Build.BuildId).zip"
+      RuntimeStack: "NODE|12-lts"
+      StartupCommand: "pm2 serve /home/site/wwwroot --no-daemon --spa"

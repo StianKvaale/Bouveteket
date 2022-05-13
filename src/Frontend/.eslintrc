@@ -1,0 +1,69 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018,
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "import",
+      "react",
+      "react-hooks"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      },
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "moduleDirectory": [
+            "src/",
+            "node_modules"
+          ]
+        },
+        "typescript": {} // this loads <rootdir>/tsconfig.json to eslint
+      }
+    },
+    "rules": {
+      "jsx-quotes": [
+        "error",
+        "prefer-double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "import/no-unresolved": "error",
+      "indent": [
+        "error",
+        4
+      ],
+      "react/jsx-uses-vars": 2,
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn"
+      ],
+      "no-trailing-spaces": "error",
+      "no-console": "warn",
+      "react/jsx-max-props-per-line": [1, { "when": "multiline" }]
+    }
+  }

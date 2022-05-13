@@ -1,0 +1,15 @@
+# # Welcome to Bouveteket!
+
+## Local setup
+
+Complete the sections below to get started.
+
+### User secrets
+
+1. Clone the repo which is located [here](https://dev.azure.com/bouvetasa/Bouveteket/_git/BouveteketBackend)
+2. Open a terminal, go to the path where you cloned the repo
+3. Copy the command found [here](https://portal.azure.com/#@bouvetasa.onmicrosoft.com/asset/Microsoft_Azure_KeyVault/Secret/https://bouveteket-test-kv.vault.azure.net/secrets/createUserSecretCommand/ce355270577547c5a48708bb993efddd)
+4. Run the command
+5. Copy the command found [here](https://portal.azure.com/#@bouvetasa.onmicrosoft.com/asset/Microsoft_Azure_KeyVault/Secret/https://bouveteket-test-kv.vault.azure.net/secrets/createUserSecretCommandBlob/6a7036d0ff9b4d5690ac648bcd4ff5a8)
+6. Run the command
+7. Add your IP address to the firewall [here](https://portal.azure.com/#@bouvetasa.onmicrosoft.com/resource/subscriptions/60c7f837-65de-4cf2-aab1-a0e7d24f0b2e/resourceGroups/bouveteket/providers/Microsoft.Sql/servers/bouveteket-dbserver/firewall)
